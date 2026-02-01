@@ -1,0 +1,86 @@
+```md
+# Feature Transformation – Feature Scaling
+
+## Feature Transformation
+Feature transformation is a part of feature engineering where existing features are modified to make them more suitable for machine learning models. One of the most important techniques under feature transformation is **feature scaling**.
+
+---
+
+## Feature Scaling
+Feature scaling is a technique used in machine learning and data processing to bring all features to a similar range of values. This ensures that no single feature dominates others simply because of its scale or magnitude.
+
+In real-world datasets, features often have very different units and ranges. For example, one feature may represent height in centimeters ranging from 100 to 200, while another feature may represent income in dollars ranging from 10,000 to 100,000. If these features are used directly, models that rely on distance calculations or gradient updates may give more importance to features with larger numerical values.
+
+Feature scaling helps solve this problem by putting all features on a comparable scale.
+
+---
+
+## Why Feature Scaling is Important
+Many machine learning algorithms are sensitive to the scale of input features. Without scaling:
+- Features with large values dominate distance calculations
+- Gradient-based algorithms converge slowly or incorrectly
+- Model performance degrades
+
+Algorithms such as KNN, SVM, linear regression with gradient descent, and neural networks strongly benefit from feature scaling.
+
+---
+
+## Explanation of the Image (Geometric Intuition)
+
+The image represents a 2D feature space with two features, typically denoted as **x₁** and **x₂**. Each point in this space corresponds to a data sample.
+
+Two points, say **P₁(x₁, y₁)** and **P₂(x₂, y₂)**, are plotted. The distance between these two points is calculated using the Euclidean distance formula:
+
+Distance = √[(x₂ − x₁)² + (y₂ − y₁)²]
+
+In the image, one feature (for example, income) has values in the tens of thousands, while the other feature (for example, age) has values in tens. When the distance is calculated, the feature with the larger scale contributes much more to the distance value.
+
+This means the model primarily “sees” the large-scale feature and almost ignores the small-scale one, even if both are equally important. Feature scaling fixes this imbalance by bringing both axes to a similar numerical range, allowing distances and gradients to reflect true relationships between data points.
+
+---
+
+## Types of Feature Scaling
+
+Feature scaling techniques can be broadly divided into:
+1. Standardization
+2. Normalization
+
+---
+
+## Standardization
+Standardization transforms the data so that it has:
+- Mean = 0
+- Standard deviation = 1
+
+This method is useful when the data follows (or approximately follows) a normal distribution. A common technique used for standardization is the **Standard Scaler**.
+
+Standardization does not restrict values to a fixed range but ensures consistent distribution across features.
+
+---
+
+## Normalization
+Normalization rescales feature values into a specific range. Unlike standardization, normalization bounds the values.
+
+Common normalization techniques include:
+
+### 1. Min-Max Scaling
+Scales features to a fixed range, usually between 0 and 1. It preserves relationships but is sensitive to outliers.
+
+### 2. Mean Normalization
+Centers the data around zero by subtracting the mean and dividing by the range of values.
+
+### 3. Max Absolute Scaling
+Scales data by dividing each value by the maximum absolute value. Useful when data contains both positive and negative values.
+
+### 4. Robust Scaling
+Uses median and interquartile range instead of mean and standard deviation. It is less sensitive to outliers and works well with skewed data.
+
+---
+
+## Key Takeaways
+- Feature scaling ensures all features contribute equally to the model.
+- It is essential for distance-based and gradient-based algorithms.
+- Without scaling, features with large numerical ranges dominate the learning process.
+- Standardization and normalization are the two main approaches to feature scaling.
+- Choosing the right scaling method depends on data distribution and presence of outliers.
+```
